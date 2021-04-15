@@ -1,0 +1,17 @@
+<html xmlns:th="https:www.thymeleaf.org">
+    <head>
+        <title>View Product Details</title>
+    </head>
+<body>
+    <div>
+        <span>Product ID</span>
+        <span th:text="${product.id}"></span><br/>
+        <span>Product Name</span>
+        <span th:text="${product.name}"></span><br/>
+        <span>Product price</span>
+        <span th:text="${product.price}"></span><br/>
+        <br/>
+        <a th:href="@{/view/update/{id}(id=${product.id})}">Update Product</a>
+    </div>
+</body>
+</html>

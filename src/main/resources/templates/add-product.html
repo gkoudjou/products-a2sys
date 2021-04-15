@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Add a new Product</title>
+</head>
+<body>
+<div>
+    <form action="#" th:action="@{/view/add}" th:object="${product}" method="post">
+        <label for="name">Name</label>
+        <input th:field="*{name}" id="name" placeholder="Name" type="text"></input>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <br/>
+        <input type="submit" value="Add Product">
+    </form>
+</div>
+</body>
+</html>
