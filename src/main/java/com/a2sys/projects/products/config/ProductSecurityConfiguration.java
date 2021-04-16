@@ -14,14 +14,16 @@ public class ProductSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+/*
         auth.inMemoryAuthentication()
                 .passwordEncoder(a2sysPasswordEncoder())
                 .withUser("a2sys")
                 .password(a2sysPasswordEncoder().encode("spring"))
                 .roles("ADMIN", "CONSULTANT", "USER")
                 ;
+*/
 
-        //auth.userDetailsService(new A2SYSUserManagement());
+        auth.userDetailsService(new A2SYSUserManagement());
     }
 
     @Override
