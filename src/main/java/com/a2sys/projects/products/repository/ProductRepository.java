@@ -13,7 +13,7 @@ public interface ProductRepository extends CrudRepository<Product, String> {
     List<Product> findByName(String name);
     int countByNameContains(String name);
 
-    @Query("select p from Product p, Review r where p.name = ?1")
+    @Query("select p from Product p where p.name = ?1")
     Product customFindProductByName(String name);
 
     @Query(value = "select * from product where p.name like %?1", nativeQuery = true)

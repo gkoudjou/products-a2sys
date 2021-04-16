@@ -1,0 +1,26 @@
+<html xmlns:th="https:www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+        <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    </head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Product Management</h1>
+        </div>
+
+        <form action="/login" method="post">
+            <label for="username">Username</label>
+            <input id="username" name="username" placeholder="Please insert Username" type="text" required></input>
+            <br/>
+            <label for="password">Password</label>
+            <input id="password" name="password" placeholder="Please insert Password" type="password" required></input>
+            <br/>
+            <input type="submit" value="Login">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+        </form>
+
+    </div>
+</body>
+</html>
