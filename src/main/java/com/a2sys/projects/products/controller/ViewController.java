@@ -45,7 +45,6 @@ public class ViewController {
     @PostMapping("/add")
     public String addProduct(@Valid Product product, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()){
-            //TODO: gérer l'erreur. -> Rediriger vers une page
             model.addAttribute("product", product);
             return "add-product";
         }
@@ -63,8 +62,8 @@ public class ViewController {
         if(result.isPresent()){
             model.addAttribute("product", result.get());
         }
-
-        model.addAttribute("product", new Product());
+        else
+            model.addAttribute("product", new Product());
         return "update-product";
     }
 }
