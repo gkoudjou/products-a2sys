@@ -20,6 +20,8 @@ public class ProductSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .password(a2sysPasswordEncoder().encode("spring"))
                 .roles("ADMIN", "CONSULTANT", "USER")
                 ;
+
+        //auth.userDetailsService(new A2SYSUserManagement());
     }
 
     @Override

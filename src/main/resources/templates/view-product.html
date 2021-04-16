@@ -3,12 +3,15 @@
         <title>View Product Details</title>
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
         <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     </head>
 <body>
     <div class="container">
         <div class="jumbotron">
             <h1>Product Management</h1>
         </div>
+        <a href="#" id="logoutLink">Log out here !</a>
+        <br/>
         <span>Product ID</span>
         <span th:text="${product.id}"></span><br/>
         <span>Product Name</span>
@@ -17,6 +20,17 @@
         <span th:text="${product.price}"></span><br/>
         <br/>
         <a th:href="@{/view/update/{id}(id=${product.id})}">Update Product</a>
+
+        <form id="logout" action="/logout" method="post">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+        </form>
     </div>
+    <script>
+        $(function(){
+           $('#logoutLink').click(function(){
+               $('#logout').submit();
+           });
+        });
+    </script>
 </body>
 </html>
